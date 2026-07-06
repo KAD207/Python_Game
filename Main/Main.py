@@ -1,12 +1,21 @@
+from pygame.surface import SurfaceType
+
 import Settings as st
+import Fonts as f
 import pygame
+import Customer as c
 
 pygame.init()
 clock = pygame.time.Clock()
 
-screen = pygame.display.set_mode((st.DISPLAY_WIDTH, st.DISPLAY_HEIGHT))
+screen: SurfaceType = pygame.display.set_mode((st.DISPLAY_WIDTH, st.DISPLAY_HEIGHT))
 pygame.display.set_caption("☕ Cozy Coffee Stand")
-pygame.display.set_mode((st.DISPLAY_WIDTH, st.DISPLAY_HEIGHT))
+
+stand_text: SurfaceType = f.render_font("☕ Raccafé")
+rect = stand_text.get_rect()
+rect.center = (st.textx, st.texty)
+
+customer = c.Customer(200, 400, "Latte")
 
 def main():
 
@@ -18,6 +27,9 @@ def main():
 
 
         screen.fill(st.bgc)
+        screen.blit(stand_text, rect)
+
+        customer.draw(screen)
 
         # draw ground strips
         pygame.draw.rect(screen, st.groundcolor, st.groundrect)

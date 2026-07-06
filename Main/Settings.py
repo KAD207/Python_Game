@@ -19,5 +19,8 @@ standx = DISPLAY_WIDTH / 2
 standy = groundy - standheight
 standrect = (standx - standwidth/2, standy, standwidth, standheight)
 
+textx = DISPLAY_WIDTH / 2
+texty = DISPLAY_HEIGHT / 2 - standheight
+
 black = (0,0,0)
 white = (255,255,255)
