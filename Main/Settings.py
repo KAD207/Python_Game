@@ -22,5 +22,16 @@ standrect = (standx - standwidth/2, standy, standwidth, standheight)
 textx = DISPLAY_WIDTH / 2
 texty = DISPLAY_HEIGHT / 2 - standheight
 
+DRINK_PRICES = {
+    'Lilac Latte': 6,
+    'Triple Shot Espresso': 5,
+    'Macadamia Matcha': 7,
+    'Bamboo Cold Brew': 6,
+    'Citrus Hot Chocolate': 7,
+    'Matcha Latte': 5,
+    'Acorn Brew': 4,
+    'Forest Fog': 8,
+}
+
 black = (0,0,0)
 white = (255,255,255)

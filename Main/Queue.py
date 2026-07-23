@@ -2,10 +2,11 @@ import pygame.time
 
 import Customer as c
 import Settings as st
+import GameState as gs
 import random
 
-all_orders = ['Latte', 'Espresso', 'Matcha', 'Cappuccino', 'Hot Chocolate', 'Americano', 'Frappuccino', 'Mocha']
-orders_queue = ['Latte', 'Espresso', 'Matcha']
+all_orders: list[str] = list(st.DRINK_PRICES.keys())
+orders_queue = []
 
 customers = [
     c.Customer(st.standx + st.standwidth + (i * c.customer_space_between), st.groundy - c.radius, orders_queue[i])
@@ -23,6 +24,9 @@ def update_queue():
 
 def serve_customer():
     if len(customers) > 0:
+        # take the customer order index then earn_coins FOR that index only
+        order = customers[0].order
+        gs.earn_coins(st.DRINK_PRICES[order])
         customers.pop(0)
         update_queue()
 
