@@ -1,4 +1,4 @@
-DISPLAY_WIDTH = 1280
+DISPLAY_WIDTH = 1360
 DISPLAY_HEIGHT = 768
 x = DISPLAY_WIDTH / 2 - 100
 y = DISPLAY_HEIGHT / 2
@@ -26,10 +26,10 @@ DRINK_PRICES = {
     'Lilac Latte': 6,
     'Triple Shot Espresso': 5,
     'Macadamia Matcha': 7,
-    'Bamboo Cold Brew': 6,
-    'Citrus Hot Chocolate': 7,
+    'Bamboo Bold Brew': 6,
+    'Citrus Charged Chocolate': 7,
     'Matcha Latte': 5,
-    'Acorn Brew': 4,
+    'Acorn Americano': 4,
     'Forest Fog': 8,
 }
 

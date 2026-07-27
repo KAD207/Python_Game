@@ -6,16 +6,18 @@ import GameState as gs
 import random
 
 all_orders: list[str] = list(st.DRINK_PRICES.keys())
-orders_queue = []
+orders_queue: list = []
 
-customers = [
+customers: list[c.Customer] = [
     c.Customer(st.standx + st.standwidth + (i * c.customer_space_between), st.groundy - c.radius, orders_queue[i])
     for i in range(len(orders_queue))]
 
-MAX_QUEUE_SIZE = 5
+MAX_QUEUE_SIZE: int = 5
 
-last_spawn_time = 0
-spawn_delay = random.randint(2000, 6000)
+last_spawn_time: int = 0
+spawn_time_inclusive: int = 2000
+spawn_time_exclusive: int = 6000
+spawn_delay = random.randint(spawn_time_inclusive, spawn_time_exclusive)
 
 def update_queue():
     for i, customer in enumerate(customers):

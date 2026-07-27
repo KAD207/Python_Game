@@ -9,7 +9,7 @@ import Fonts as f
 
 color = (255, 180, 120)
 radius = 20
-customer_space_between = 100
+customer_space_between = 80
 
 class Customer:
     def __init__(self, x, y, order) -> None:
