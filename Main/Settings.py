@@ -1,3 +1,7 @@
+"""
+This is settings for the game, mostly Python variables
+"""
+
 DISPLAY_WIDTH = 1360
 DISPLAY_HEIGHT = 768
 x = DISPLAY_WIDTH / 2 - 100
@@ -35,3 +39,6 @@ DRINK_PRICES = {
 
 black = (0,0,0)
 white = (255,255,255)
+
+DAY_DURATION = 240000 # 6 minutes in milliseconds
+NIGHT_DURATION = 10000 # 10 seconds of night before day
