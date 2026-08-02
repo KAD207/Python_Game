@@ -5,7 +5,7 @@ import Fonts as font
 import Upgrades as upgrade
 
 sidebar_width: int = 400
-sidebar_x: int = -sidebar_width
+sidebar_x: int | float = -sidebar_width
 sidebar_open: bool = False
 sidebar_color: tuple[int, int, int] = (229, 228, 226)
 
@@ -17,9 +17,9 @@ shop_button: pygame.Rect = pygame.Rect(40, st.DISPLAY_HEIGHT - shop_button_heigh
                                        shop_button_height)
 
 upgrades = [
-    upgrade.LargerQueueUpgrade("Larger Queue", "-Fit more customers", 50, 0, 5),
-    upgrade.FasterSpawnUpgrade("Faster Spawns", "-Customers arrive faster", 75, 0, 10),
-    upgrade.CosmeticsUpgrade("Cosmetics", "-Cosmetically cosmetical", 10, 0, 100)
+    upgrade.LargerQueueUpgrade("Larger Queue", "-  Fit more customers", 50, 0, 5),
+    upgrade.FasterSpawnUpgrade("Faster Spawns", "- Customers arrive faster", 75, 0, 10),
+    upgrade.CosmeticsUpgrade("Cosmetics", "- Cosmetically cosmetical", 10, 0, 100)
     ]
 
 def toggle_sidebar():

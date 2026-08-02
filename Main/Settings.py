@@ -40,5 +40,5 @@ DRINK_PRICES = {
 black = (0,0,0)
 white = (255,255,255)
 
-DAY_DURATION = 240000 # 6 minutes in milliseconds
+DAY_DURATION = 10000 # 6 minutes in milliseconds
 NIGHT_DURATION = 10000 # 10 seconds of night before day

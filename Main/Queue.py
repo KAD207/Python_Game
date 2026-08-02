@@ -32,7 +32,7 @@ def serve_customer():
         customers.pop(0)
         update_queue()
 
-def try_spawn_customer():
+def try_spawn_customer() -> None:
     global last_spawn_time, spawn_delay
     current_time = pygame.time.get_ticks()
     if len(customers) < MAX_QUEUE_SIZE and current_time - last_spawn_time >= spawn_delay:
@@ -42,3 +42,8 @@ def try_spawn_customer():
         customers.append(c.Customer(new_x, st.groundy - c.radius, rand_order))
         last_spawn_time = current_time
         spawn_delay = random.randint(2000, 6000)
+
+def reset_spawn_timer() -> None:
+    global last_spawn_time, spawn_delay
+    last_spawn_time = pygame.time.get_ticks()
+    spawn_delay = random.randint(spawn_time_inclusive,spawn_time_exclusive)

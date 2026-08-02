@@ -1,12 +1,14 @@
 from pygame.surface import SurfaceType
 
+import pygame
 import Settings as settings
 import Fonts as font
-import pygame
 import Queue as queue
 import GameState as gamestate
 import Shop as shop
 import FloatingText as f
+import DayNightCycle as dnc
+import SummaryBoard as sb
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -52,13 +54,18 @@ def main():
 
                 # stored as a queue in Queue.py so HAVE to be accessed using queue
                 if len(queue.customers) > 0 and queue.customers[0].is_clicked(mouse_x, mouse_y):
+                    gamestate.track_order(queue.customers[0].order)
+                    print(f'{gamestate.orders_today}')
                     queue.serve_customer()
 
         # =====================
         # 2. UPDATE GAME STATE
         # =====================
+        dnc.update()
+        sb.update()
         shop.update()
-        queue.try_spawn_customer()
+        if not dnc.is_night:
+            queue.try_spawn_customer()
 
         for ft in floating_texts:
             ft.update()
@@ -88,6 +95,9 @@ def main():
         screen.blit(stand_text, rect)                                       # title
         coin_text = font.render_font(f'$ {gamestate.coins}', 50)
         screen.blit(coin_text, (20, 20))                               # coins
+
+        dnc.draw_overlay(screen)                                            # draws on top of scene, under UI text
+        sb.draw(screen)
 
         for ft in floating_texts:                                           # floating text
             ft.draw(screen)
